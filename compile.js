@@ -1,5 +1,8 @@
 var template = require("./index")
 
+//UPD
+var escape = require('./escape.js');
+
 var whitespaceRegex = /["'\\\n\r\u2028\u2029]/g
 var nargs = /\{[0-9a-zA-Z]+\}/g
 
@@ -115,12 +118,13 @@ function compile(string, inline) {
     }
 }
 
-function escape(string) {
-    string = '' + string
-    return string.replace(whitespaceRegex, escapedWhitespace)
-}
+//UPD
+//function escape(string) {
+//    string = '' + string
+//    return string.replace(whitespaceRegex, escapedWhitespace)
+//}
 
-function escapedWhitespace(character) {
+/*function escapedWhitespace(character) {
     // Escape all characters not included in SingleStringCharacters and
     // DoubleStringCharacters on
     // http://www.ecma-international.org/ecma-262/5.1/#sec-7.8.4
@@ -139,4 +143,4 @@ function escapedWhitespace(character) {
         case '\u2029':
             return '\\u2029'
     }
-}
+}*/

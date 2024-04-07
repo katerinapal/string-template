@@ -26,14 +26,17 @@
   "devDependencies": {
     "istanbul": "^0.4.1",
     "opn": "^3.0.3",
-    "tape": "~1.1.1"
+    "tape": "~1.1.1",
+    "jest": "^28.1.3"
   },
   "license": "MIT",
   "scripts": {
     "test": "node ./test/index.js",
     "travis-test": "istanbul cover ./test/index.js && ((cat coverage/lcov.info | coveralls) || exit 0)",
     "cover": "istanbul cover --report none --print detail ./test/index.js",
-    "view-cover": "istanbul report html && opn --no-wait ./coverage/index.html"
+    "view-cover": "istanbul report html && opn --no-wait ./coverage/index.html",
+    "gen-test-suite-compile-template": "jest --verbose ./generated-tests/compile_index_js.test.js --coverage=true",
+    "gen-test-suite-compile-escape": "jest --verbose ./generated-tests/compile_escape_js.test.js --coverage=true"
   },
   "testling": {
     "files": "test/index.js",
